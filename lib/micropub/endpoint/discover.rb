@@ -6,10 +6,6 @@ module Micropub
         user_agent: 'Micropub Endpoint Discovery (https://rubygems.org/gems/micropub-endpoint)'
       }.freeze
 
-      # Ultra-orthodox pattern matching Link header `rel` parameter including a `micropub` value
-      # https://www.w3.org/TR/micropub/#endpoint-discovery
-      REGEXP_MICROPUB_REL_PATTERN = /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?micropub(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
-
       # Ultra-orthodox pattern matching allowed values in Link header `rel` parameter
       # https://tools.ietf.org/html/rfc8288#section-3.3
       REGEXP_REG_REL_TYPE_PATTERN = '[a-z\d][a-z\d\-\.]*'.freeze
@@ -17,6 +13,10 @@ module Micropub
       # Liberal pattern matching a string of text between angle brackets
       # https://tools.ietf.org/html/rfc5988#section-5.1
       REGEXP_TARGET_URI_PATTERN = /^<(.*)>;/
+
+      # Ultra-orthodox pattern matching Link header `rel` parameter including a `micropub` value
+      # https://www.w3.org/TR/micropub/#endpoint-discovery
+      REGEXP_MICROPUB_REL_PATTERN = /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?micropub(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
 
       attr_reader :uri, :url
 
