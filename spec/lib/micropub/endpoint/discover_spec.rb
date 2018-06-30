@@ -16,7 +16,7 @@ describe Micropub::Endpoint::Discover do
   context 'when given a valid URL' do
     let(:url) { 'https://example.com' }
 
-    before :each do
+    before do
       stub_request(:get, url)
     end
 
