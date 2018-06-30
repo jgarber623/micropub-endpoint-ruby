@@ -2,6 +2,8 @@ module Micropub
   module Endpoint
     class Error < StandardError; end
 
+    class ArgumentError < Error; end
+
     class ConnectionError < Error; end
 
     class InvalidURIError < Error; end
