@@ -1,4 +1,10 @@
+require 'addressable/uri'
+require 'http'
+require 'nokogiri'
+
 require 'micropub/endpoint/version'
+require 'micropub/endpoint/error'
+require 'micropub/endpoint/discover'
 
 module Micropub
   module Endpoint
