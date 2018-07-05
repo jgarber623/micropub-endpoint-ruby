@@ -82,7 +82,7 @@ puts discoverer.response # returns HTTP::Response
 
 There are several exceptions that may be raised by micropub-endpoint-ruby's underlying dependencies. These errors are raised as subclasses of `Micropub::Endpoint::Error` (which itself is a subclass of `StandardError`).
 
-From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
+From [jgarber623/absolutely](https://github.com/jgarber623/absolutely) and  [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
 - `Micropub::Endpoint::InvalidURIError`
 
