@@ -234,6 +234,18 @@ describe Micropub::Endpoint, '.discover' do
         expect(described_class.discover(url)).to eq(endpoint)
       end
     end
+
+    context 'when the `link` element references an invalid URL' do
+      let(:url) { 'https://example.com/link_element/invalid_href' }
+
+      before do
+        stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
+      end
+
+      it 'raises an InvalidURIError' do
+        expect { described_class.discover(url) }.to raise_error(Micropub::Endpoint::InvalidURIError)
+      end
+    end
   end
 
   # Similar to https://webmention.rocks/test/11
