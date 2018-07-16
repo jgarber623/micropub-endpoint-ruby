@@ -11,7 +11,7 @@
 
 ## Key Features
 
-- Compliant with [Section 5.3](https://www.w3.org/TR/micropub/#endpoint-discovery) of [the W3C's Micropub specification](https://www.w3.org/TR/micropub/).
+- Compliant with [Section 5.3](https://www.w3.org/TR/micropub/#endpoint-discovery) of [the W3C's Micropub Recommendation](https://www.w3.org/TR/micropub/).
 - Supports Ruby 2.4 and newer.
 
 ## Getting Started
@@ -50,7 +50,7 @@ endpoint = Micropub::Endpoint.discover('https://adactio.com')
 puts endpoint # returns String: 'https://adactio.com/micropub'
 ```
 
-This example will search `https://adactio.com` for a valid Micropub endpoint in accordance with the rules described in [the W3C's Micropub specification](https://www.w3.org/TR/micropub/#endpoint-discovery). In this case, the program returns a string: `https://adactio.com/micropub`.
+This example will search `https://adactio.com` for a valid Micropub endpoint in accordance with the rules described in [the W3C's Micropub Recommendation](https://www.w3.org/TR/micropub/#endpoint-discovery). In this case, the program returns a string: `https://adactio.com/micropub`.
 
 If no endpoint is discovered at the provided URL, the program will return `nil`:
 
