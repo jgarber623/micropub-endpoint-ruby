@@ -5,12 +5,14 @@ require 'nokogiri'
 
 require 'micropub/endpoint/version'
 require 'micropub/endpoint/error'
+require 'micropub/endpoint/client'
 require 'micropub/endpoint/discover'
+require 'micropub/endpoint/response'
 
 module Micropub
   module Endpoint
     def self.discover(url)
-      Discover.new(url).endpoint
+      Client.new(url).endpoint
     end
   end
 end

@@ -1,11 +1,6 @@
 module Micropub
   module Endpoint
     class Discover
-      HTTP_HEADERS_OPTS = {
-        accept: '*/*',
-        user_agent: 'Micropub Endpoint Discovery (https://rubygems.org/gems/micropub-endpoint)'
-      }.freeze
-
       # Ultra-orthodox pattern matching allowed values in HTTP Link header `rel` parameter
       # https://tools.ietf.org/html/rfc8288#section-3.3
       REGEXP_REG_REL_TYPE_PATTERN = '[a-z\d][a-z\d\-\.]*'.freeze
@@ -18,44 +13,26 @@ module Micropub
       # https://www.w3.org/TR/micropub/#endpoint-discovery
       REGEXP_MICROPUB_REL_PATTERN = /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?micropub(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
 
-      attr_reader :uri, :url
+      def initialize(response)
+        raise ArgumentError, "response must be an HTTP::Response (given #{response.class.name})" unless response.is_a?(HTTP::Response)
 
-      def initialize(url)
-        raise ArgumentError, "url must be a String (given #{url.class.name})" unless url.is_a?(String)
-
-        @url = url
-        @uri = Addressable::URI.parse(url)
-      rescue Addressable::URI::InvalidURIError => error
-        raise InvalidURIError, error
+        @response = response
       end
 
       def endpoint
         return unless endpoint_from_http_request
 
-        @endpoint ||= Absolutely.to_absolute_uri(base: url, relative: endpoint_from_http_request)
+        @endpoint ||= Absolutely.to_absolute_uri(base: @response.uri.to_s, relative: endpoint_from_http_request)
       rescue Absolutely::InvalidURIError => error
         raise InvalidURIError, error
-      end
-
-      def response
-        @response ||= HTTP.follow.headers(HTTP_HEADERS_OPTS).timeout(
-          connect: 10,
-          read: 10
-        ).get(uri)
-      rescue HTTP::ConnectionError => error
-        raise ConnectionError, error
-      rescue HTTP::TimeoutError => error
-        raise TimeoutError, error
-      rescue HTTP::Redirector::TooManyRedirectsError => error
-        raise TooManyRedirectsError, error
       end
 
       private
 
       def endpoint_from_body
-        return unless response.mime_type == 'text/html'
+        return unless @response.mime_type == 'text/html'
 
-        doc = Nokogiri::HTML(response.body.to_s)
+        doc = Nokogiri::HTML(@response.body.to_s)
 
         # Search response body for first `link` element with valid `rel` attribute
         link_element = doc.css('link[rel~="micropub"][href]').shift
@@ -64,7 +41,7 @@ module Micropub
       end
 
       def endpoint_from_headers
-        link_headers = response.headers.get('link')
+        link_headers = @response.headers.get('link')
 
         return unless link_headers
 
