@@ -64,18 +64,15 @@ puts endpoint.nil? # returns Boolean: true
 
 ### Advanced Usage
 
-Should the need arise, you may work directly with the `Micropub::Endpoint::Discover` class:
+Should the need arise, you may work directly with the `Micropub::Endpoint::Client` class:
 
 ```ruby
 require 'micropub/endpoint'
 
-discoverer = Micropub::Endpoint::Discover.new('https://adactio.com')
+client = Micropub::Endpoint::Client.new('https://adactio.com')
 
-puts discoverer.url      # returns String: 'https://adactio.com'
-puts discoverer.endpoint # returns String: 'https://adactio.com/micropub'
-
-puts discoverer.uri      # returns Addressable::URI
-puts discoverer.response # returns HTTP::Response
+puts client.response # returns HTTP::Response
+puts client.endpoint # returns String: 'https://adactio.com/micropub'
 ```
 
 ### Exception Handling
