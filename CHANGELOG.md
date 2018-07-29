@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 / 2018-07-29
+
+- Raise an `ArgumentError` when `Client` instantiated with non-absolute URI ([d598f1b](https://github.com/jgarber623/micropub-endpoint-ruby/commit/d598f1b)).
+
 ## 1.0.0 / 2018-07-17
 
 - Adds new `Micropub::Endpoint::Client` and `Micropub::Endpoint::Response` classes and refactors `Micropub::Endpoint::Discover` API ([77f9865](https://github.com/jgarber623/micropub-endpoint-ruby/commit/77f9865)).
