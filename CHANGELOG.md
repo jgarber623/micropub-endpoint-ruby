@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 / 2018-11-11
+
+- Freeze mutable objects assigned to constants ([843e875](https://github.com/jgarber623/micropub-endpoint-ruby/commit/843e875)).
+- Liberalize gemspec dependency constraints ([c71e29f](https://github.com/jgarber623/micropub-endpoint-ruby/commit/c71e29f)).
+
 ## 1.0.1 / 2018-07-29
 
 - Raise an `ArgumentError` when `Client` instantiated with non-absolute URI ([d598f1b](https://github.com/jgarber623/micropub-endpoint-ruby/commit/d598f1b)).
