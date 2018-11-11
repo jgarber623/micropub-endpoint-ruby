@@ -7,11 +7,11 @@ module Micropub
 
       # Liberal pattern matching a string of text between angle brackets
       # https://tools.ietf.org/html/rfc5988#section-5.1
-      REGEXP_TARGET_URI_PATTERN = /^<(.*)>;/
+      REGEXP_TARGET_URI_PATTERN = /^<(.*)>;/.freeze
 
       # Ultra-orthodox pattern matching HTTP Link header `rel` parameter including a `micropub` value
       # https://www.w3.org/TR/micropub/#endpoint-discovery
-      REGEXP_MICROPUB_REL_PATTERN = /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?micropub(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
+      REGEXP_MICROPUB_REL_PATTERN = /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?micropub(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/.freeze
 
       def initialize(response)
         raise ArgumentError, "response must be an HTTP::Response (given #{response.class.name})" unless response.is_a?(HTTP::Response)
