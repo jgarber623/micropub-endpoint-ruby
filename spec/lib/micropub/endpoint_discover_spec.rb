@@ -76,7 +76,7 @@ describe Micropub::Endpoint, '.discover' do
     # Similar to https://webmention.rocks/test/18
     context 'when the response includes multiple HTTP Link headers' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="micropub", 'Link': '/micropub/error'; rel="micropub") })
+        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}>; rel="micropub"), '</micropub/error>; rel="other"'] })
       end
 
       it 'returns the endpoint' do
