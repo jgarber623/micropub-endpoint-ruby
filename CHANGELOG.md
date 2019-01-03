@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 / 2019-01-03
+
+- Expand supported Ruby versions to include 2.6 ([86de073](https://github.com/jgarber623/micropub-endpoint-ruby/commit/86de073)).
+
 ## 1.0.2 / 2018-11-11
 
 - Freeze mutable objects assigned to constants ([843e875](https://github.com/jgarber623/micropub-endpoint-ruby/commit/843e875)).
