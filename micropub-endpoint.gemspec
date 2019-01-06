@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec', '~> 1.31'
   spec.add_development_dependency 'simplecov', '~> 0.16.1'
   spec.add_development_dependency 'simplecov-console', '~> 0.4.2'
-  spec.add_development_dependency 'webmock', '~> 3.4'
+  spec.add_development_dependency 'webmock', '~> 3.5'
 
   spec.add_runtime_dependency 'absolutely', '~> 1.1'
   spec.add_runtime_dependency 'addressable', '~> 2.5'
