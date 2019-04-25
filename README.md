@@ -1,5 +1,9 @@
 # micropub-endpoint-ruby
 
+⚠️ **Deprecation Notice (2019-04-24)** ⚠️ This gem is deprecated in favor of [indieweb/indieweb-endpoints-ruby](https://github.com/indieweb/indieweb-endpoints-ruby) and will no longer receive updates.
+
+---
+
 **A Ruby gem for discovering a URL's [Micropub](https://indieweb.org/Micropub) endpoint.**
 
 [![Gem](https://img.shields.io/gem/v/micropub-endpoint.svg?style=for-the-badge)](https://rubygems.org/gems/micropub-endpoint)

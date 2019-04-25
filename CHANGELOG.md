@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 / 2019-04-24
+
+- Add deprecation notice.
+
 ## 1.0.3 / 2019-01-03
 
 - Expand supported Ruby versions to include 2.6 ([86de073](https://github.com/jgarber623/micropub-endpoint-ruby/commit/86de073)).

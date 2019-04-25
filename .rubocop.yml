@@ -4,6 +4,7 @@ require:
 
 Metrics/BlockLength:
   Exclude:
+    - micropub-endpoint.gemspec
     - spec/**/*.rb
 
 Metrics/LineLength:
